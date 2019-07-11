@@ -20,16 +20,9 @@
     <div class="company-name">
         <!-- This comes from the properties file -->
         <h2 th:text="'Hello ' + ${company}"></h2>
-    </div>
 
-    <div>
-        <h3>List of random messages:</h3>
-        <!-- Simple for loop in thymeleaf -->
-        <ul th:each="message : ${messages}">
-            <li th:text="${message.getMsg()}"></li>
-        </ul>
     </div>
+    <a href="/translatePage" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Wanna see some translations?</a>
 </div>
-
 </body>
 </html>

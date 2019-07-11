@@ -12,6 +12,7 @@ public class Message {
     @Column(length = 100)
     private String msg;
 
+
     public Message() {
     }
 
@@ -26,4 +27,6 @@ public class Message {
     public void setMsg(String msg) {
         this.msg = msg;
     }
+
+
 }

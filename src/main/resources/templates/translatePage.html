@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Unbabel Java Coding Challenge</title>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{css/main.css}"/>
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{js/main.js}"></script>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Unbabel Challenge</a>
+</nav>
+<div class="container">
+<form action="#" th:action="@{/translate}" method="post">
+    <div class="form-group">
+        <label for="FromLanguage">From Language:</label>
+        <input type="text" class="form-control" id="source" placeholder="Example: en for English" name="source" th:value="${source}">
+    </div>
+    <div class="form-group">
+        <label for="Text">Text to translate:</label>
+        <input type="text" class="form-control" id="msg" placeholder="Text to translate" name="msg" th:value="${msg}">
+    </div>
+    <div class="form-group">
+        <label for="ToLanguage">To Language:</label>
+        <input type="text" class="form-control" id="target" placeholder="Example: pt for portuguese" name="target" th:value="${target}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">From Language</th>
+        <th scope="col">Original Text</th>
+        <th scope="col">To Language</th>
+        <th scope="col">Translated Text</th>
+        <th scope="col">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="message:${messages}">
+        <th scope="row" th:text="${message.getId()}"x></th>
+        <td th:text="${message.getSource_language()}"></td>
+        <td th:text="${message.getText()}"></td>
+        <td th:text="${message.getTarget_language()}"></td>
+        <td th:text="${message.getTranslatedText()}"></td>
+        <td th:text="${message.getStatus()}"></td>
+    </tr>
+
+    </tbody>
+</table>
+    <a href="/translatePage" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Wanna see some translations?</a>
+
+
+</div>
+
+</div>
+</body>
+</html>
